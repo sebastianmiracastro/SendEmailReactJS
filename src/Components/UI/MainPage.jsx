@@ -1,13 +1,18 @@
 import React from 'react'
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
+
 
 export const MainPage = () => {
  
     const sendEmail = (e) => {
       e.preventDefault();
 
-      emailjs.sendForm('service_y2yo8ch')
-
+      emailjs.sendForm('service_y2yo8ch', 'template_49sb8ih', e.target, 
+      's2GQHOnIen1qThKxK').then((result) => { 
+        console.log(result)
+      }).catch((err) => {
+        console.log(err)
+      });
     }
 
   return (
